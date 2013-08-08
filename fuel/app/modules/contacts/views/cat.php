@@ -21,7 +21,7 @@
                         <?php echo \Form::select('org_cat', '', array_merge($a,$org_cats), array('class'=>' center'),array('id'=>'visibleOrgCat')); ?>
                         <?php echo \Helper_Form::clear_select('org_cat'); ?>
                         
-	            </td>gfgfgggfgfg
+	            </td>
 	            </tr>
                     <tr>
                         <td> 
