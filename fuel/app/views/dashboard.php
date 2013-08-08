@@ -5,7 +5,32 @@
     <title>NMI :: Test and Calibration Database</title>
 	<?php echo \Asset::css(array('dashboard.css', 'colorbox.css')); ?>
 	<?php echo \Asset::js(array('jquery.js', 'colorbox.js', 'app.js', 'dashboard.js')); ?>
+<?php echo Asset::css('app.css'); ?>
+        
+        <?php echo Asset::css('jquery.ui.css'); ?>
+        <?php echo Asset::css('typography.css'); ?>
+        <?php echo Asset::css('datatables.css'); ?>
+        <?php echo Asset::css('colorbox.css'); ?>
+        <?php echo Asset::css('datepicker.css'); ?>
+        <?php echo Asset::css('style.css'); ?>
+        <?php echo Asset::css('bootstrap.css'); ?>
 
+        <script type="text/javascript"> APP = {}; APP.base_url = '<?php echo Uri::base(); ?>'; </script>
+         
+        <?php echo Asset::js('jquery.js'); ?>   
+        <?php echo Asset::js('jquery.dataTables.js'); ?>        
+        <?php echo Asset::js('colorbox.js'); ?>
+        <?php echo Asset::js('jquery.ui.js'); ?>
+        <?php echo Asset::js('jquery.defaultvalue.js'); ?>
+        <?php echo Asset::js('jec.js'); ?>
+        <?php echo Asset::js('moment_1.7.2.js'); ?>
+         <?php echo Asset::js('glDatePicker.min.js'); ?>
+        <?php echo Asset::js('dialogs.js'); ?>
+        <?php echo Asset::js('jshashtable.js'); ?>
+        <?php echo Asset::js('jquery-numberformatter.js'); ?>
+        <?php echo Asset::js('jquery.h5validate.js'); ?>
+        <?php echo Asset::js('app.js'); ?>
+         <?php echo Asset::js('bootstrap.js'); ?> 
 </head>
 
 <body>
@@ -97,6 +122,7 @@
 
 			
 		</ul>
+                <input type="button" id="ok_tt">
 		<div class="clear"></div>
 		
 		<div id="footer_actions">
@@ -112,6 +138,30 @@
 		</div>
 		
 	</div>
-	
+        <div id="NewOrg" title="frmInsertOrganisation" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
+    <iframe id="NewOrgIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
+</div>
+        <script type="text/javascript">
+        $("#NewOrg").dialog({
+    autoOpen: false,
+    modal: true,
+    width:1030,
+    height:780,
+    resize:false,
+      resizable: false,
+      
+    open: function(ev, ui){
+$(".ui-dialog-titlebar-close").hide();
+             $('#NewOrgIF').attr('src',"<?php echo \Uri::create('contacts'); ?>");
+          }
+});
+
+$('#ok_tt').click(function(){
+    //alert($('#insertUrl').val());
+  //  parent.$('body').css('overflow','hidden'); 
+    $('#NewOrg').dialog('open');
+});
+
+        </script>	
 </body>
 </html>
