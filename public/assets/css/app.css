@@ -67,7 +67,7 @@ body.main-template.clr_reportmaster{
 	position:fixed;
 	z-index: 98;
 	min-width:950px;
-        top:40px;
+        top:-2px;
 }
 
 /* =============================================================================
@@ -715,7 +715,7 @@ form#login_box .signin {
 	vertical-align: bottom;
 	overflow: hidden;
 	padding-bottom:15px;
-	margin-bottom:45px;
+	margin-bottom:0px;
 }
 
 #header .user {
