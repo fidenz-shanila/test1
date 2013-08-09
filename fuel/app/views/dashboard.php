@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>NMI :: Test and Calibration Database</title>
 	<?php echo \Asset::css(array('dashboard.css', 'colorbox.css')); ?>
@@ -141,11 +142,18 @@
         <div id="NewOrg" title="frmInsertOrganisation" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
     <iframe id="NewOrgIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
 </div>
+        <div id="somediv" title="frmContact" width="100%" height="1000px" style="display:none;background-color:#8FA5FA;" >
+    <iframe id="thedialog" width="100%" height="1000px" style="background-color:#8FA5FA;overflow:auto;border:none"></iframe>
+</div>
+        <div id="dialog" title="frmInsertContact" class="abcdef" style="width:650px;height:20px;overflow:hidden;background-color:#C0C0C0;">
+    <iframe style="width:550px;height:290px;" id="myIframe" src=""></iframe>
+</div>
+        
         <script type="text/javascript">
         $("#NewOrg").dialog({
     autoOpen: false,
     modal: true,
-    width:1030,
+    width:1230,
     height:780,
     resize:false,
       resizable: false,
@@ -161,6 +169,15 @@ $('#ok_tt').click(function(){
   //  parent.$('body').css('overflow','hidden'); 
     $('#NewOrg').dialog('open');
 });
+
+function closeIframe()
+{
+    parent.$('#somediv').dialog('close');
+    //dt.fnDraw();
+   
+   UpdateLesting();
+  
+}
 
         </script>	
 </body>
