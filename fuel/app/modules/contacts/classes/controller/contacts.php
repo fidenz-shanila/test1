@@ -27,18 +27,26 @@ class Controller_Contacts extends \Controller_Base {
         $view->sidebar->org_cats = Model_Contact::get_org_categories();
 
         $this->template->body_classes = array('clr_administration');
+        $this->set_iframe_template();
        if(\Input::get('mode')){
 	 $this->set_iframe_template('grids/contacts');
          $this->template->content = $view;
         }else{
 	 $this->template->content = $view;
 	}
+       // echo "<script> alert('22');</script>";
     }
     function action_catForme() {
         $this->set_iframe_template('');
         $view = \View::forge('cat');
         $view->contact_cats = Model_Contact::get_categories();
         $view->org_cats = Model_Contact::get_org_categories();
+        $this->template->content = $view;
+    }
+    
+      function action_search_contacts() {
+        $this->set_iframe_template('search_contacts');
+        $view = \View::forge('search_contacts');
         $this->template->content = $view;
     }
 
@@ -574,4 +582,18 @@ echo "<script> parent.$('#insertCheckr').val('$CO_ContactID_pk'); parent.$('#dia
         $result = $listing->listing();
         return count($result['result']);
     }
+    public function action_load_project_select_ajax(){ 
+        //exit;
+//        $array=array(1,2,3);
+   echo "<script>koko(); </script>";
+//     echo json_encode($array);
+//                        exit;
+//                        p
+        //load_project_select_ajax1();
+       // return 2;
+       // print_r("<script> alert('ddd');</script>");exit;
+}
+function load_project_select_ajax1(){
+    //echo "<script> alert('ddd');</script>";
+}
 }
