@@ -139,18 +139,27 @@
 		</div>
 		
 	</div>
-        <div id="NewOrg" title="frmInsertOrganisation" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
-    <iframe id="NewOrgIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
+        <div id="frmContactListing" title="frmContactListing" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
+    <iframe id="frmContactListingIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
 </div>
         <div id="somediv" title="frmContact" width="100%" height="1000px" style="display:none;background-color:#8FA5FA;" >
     <iframe id="thedialog" width="100%" height="1000px" style="background-color:#8FA5FA;overflow:auto;border:none"></iframe>
 </div>
-        <div id="dialog" title="frmInsertContact" class="abcdef" style="width:650px;height:20px;overflow:hidden;background-color:#C0C0C0;">
+        <div id="dialog" title="frmInsertContact" class="abcdef" style="width:650px;height:20px;overflow:hidden;background-color:#C0C0C0;display:none;">
     <iframe style="width:550px;height:290px;" id="myIframe" src=""></iframe>
+</div>
+        <div id="CatWendow" title="frmContactAndOrgCats" scrolling="no" width="100%" height="100%" style="display:none;overflow:hidden;background-color:#8FA5FA;" >
+    <iframe id="CatWendowIF" width="100%" height="100%" style="background-color:#8FA5FA;overflow:hidden;border: none;"></iframe>
+</div>
+         <div id="lll" title="frmContactAndOrgCats" scrolling="no" width="100%" height="100%" style="display:none;overflow:hidden;background-color:#8FA5FA;" >
+    <iframe id="lllIF" width="100%" height="100%" src="contacts/search_contacts" style="background-color:#8FA5FA;overflow:hidden;border: none;"></iframe>
+</div>
+        <div id="NewOrg" title="frmInsertOrganisation" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
+    <iframe id="NewOrgIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
 </div>
         
         <script type="text/javascript">
-        $("#NewOrg").dialog({
+        $("#frmContactListing").dialog({
     autoOpen: false,
     modal: true,
     width:1230,
@@ -160,25 +169,46 @@
       
     open: function(ev, ui){
 $(".ui-dialog-titlebar-close").hide();
-             $('#NewOrgIF').attr('src',"<?php echo \Uri::create('contacts'); ?>");
+             $('#frmContactListingIF').attr('src',"<?php echo \Uri::create('contacts'); ?>");
           }
 });
 
 $('#ok_tt').click(function(){
     //alert($('#insertUrl').val());
   //  parent.$('body').css('overflow','hidden'); 
-    $('#NewOrg').dialog('open');
+    $('#frmContactListing').dialog('open');
 });
 
 function closeIframe()
 {
+//    $.ajax({
+//    //type: "get",
+//    url: "<?php echo \Uri::create('contacts/load_project_select_ajax'); ?>",
+//    //type: "GET",
+////            dataType: 'json',
+////            data: 'id=testdata',
+////            cache: false,
+//    success: function(data) {
+//        //alert(data);
+//    }
+//});
     parent.$('#somediv').dialog('close');
+    $("#controlpanal").val('value');
     //dt.fnDraw();
+//    alert($("#a_type").val());
    
-   UpdateLesting();
+   //UpdateLesting();
+   //$( document ).ready(function() {
+     
+//});
+   
+   
+   
+   
   
 }
 
-        </script>	
+        </script>
+        <input type="text" id="controlpanal" >
 </body>
 </html>

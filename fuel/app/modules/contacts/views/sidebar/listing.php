@@ -124,14 +124,10 @@ display:none;
 <div id="somediv1" title="frmContact" width="100%" height="100%" style="display:none;" >
     <iframe id="thedialog1" width="100%" height="100%"></iframe>
 </div>
-<div id="CatWendow" title="frmContactAndOrgCats" scrolling="no" width="100%" height="100%" style="display:none;overflow:hidden;background-color:#8FA5FA;" >
-    <iframe id="CatWendowIF" width="100%" height="100%" style="background-color:#8FA5FA;overflow:hidden;border: none"></iframe>
-</div>
 
-<div id="NewOrg" title="frmInsertOrganisation" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
-    <iframe id="NewOrgIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
-</div>
 
+
+<script id="code1" type="text/myjs">alert('hi')</script>
 <script type="text/javascript">
 	dt = $('.datatable').dataTable( {
 			"bProcessing": true,
@@ -321,7 +317,12 @@ display:none;
            
     });
     
-    
+    var timerId=self.setInterval(function(){if(parent.$("#controlpanal").val().length!=0){refrish()}},1000);
+    function refrish(){
+       // alert(parent.$("#controlpanal").val().length);
+       clearInterval(timerId);
+         dt.fnDraw();
+    }
 </script>
 
    <?php 
@@ -409,7 +410,7 @@ display:none;
                                 
                   function editCon(id){
 					
-                                        var width = $(window).width();
+                                        var width = parent.$('body').innerWidth();
                                             var height = $(window).height();
                                           //  alert(height);
  parent.$('body').css('overflow','hidden');
@@ -420,9 +421,9 @@ display:none;
                                     }
                                     
 					  //$(".select_item").click(function () {
-                                        $("#thedialog").attr('src', "<?php echo \Uri::create('contacts/edit/'); ?>"+id);
-                                        $("#somediv").dialog({
-                                            open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+                                         parent.$("#thedialog").attr('src', "<?php echo \Uri::create('contacts/edit/'); ?>"+id);
+                                         parent.$("#somediv").dialog({
+                                             open: function(event, ui) {  parent.$(".ui-dialog-titlebar-close").hide(); },
                                             width: width,
                                             height: height,
                                             modal: true,
@@ -472,36 +473,61 @@ $('#search').click(function(){
 </script>
 <script>
    
-  $(function() {
-    $( "#dialog-form_contacts" ).dialog({
-        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
-      autoOpen: false,
-      height: 400,
-      width: 610,
-      modal: true,
-      resize:false,
+//  $(function() {
+//    $( "#dialog-form_contacts" ).dialog({
+//        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+//      autoOpen: false,
+//      height: 400,
+//      width: 610,
+//      modal: true,
+//      resize:false,
+//      resizable: false,
+//      hide: 'puff',
+//        show: 'puff',
+//        
+//    });
+//   $( "#advance_search1" ) .click(function() {
+//       parent.$('body').css('overflow','auto');
+//        $('input').removeAttr('disabled','disabled');
+//    $( "#dialog-form_contacts"  ).dialog( "close" );
+// });
+// 
+//    $( "#search" ).button().click(function() {
+//         $( "#dialog-form_contacts" ).dialog( "open" );
+//           $("div").removeClass("ui-resizable-handle");
+//           parent.$('body').css('overflow','hidden');
+//          
+//        });
+//           
+//           
+//  });
+
+parent.$("#lll").dialog({
+    autoOpen: false,
+    modal: true,
+    width:600,
+    height:400,
+    resize:false,
       resizable: false,
-      hide: 'puff',
-        show: 'puff',
-    });
-   $( "#advance_search1" ) .click(function() {
-       parent.$('body').css('overflow','auto');
-        $('input').removeAttr('disabled','disabled');
-    $( "#dialog-form_contacts"  ).dialog( "close" );
- });
- 
-    $( "#search" ).button().click(function() {
-         $( "#dialog-form_contacts" ).dialog( "open" );
-           $("div").removeClass("ui-resizable-handle");
-           parent.$('body').css('overflow','hidden');
+      
+    open: function(ev, ui){
+parent.$(".ui-dialog-titlebar-close").hide();
+             parent.$('#lllIF').attr('src','contacts/search_contacts');
+           // $("p").show();
+           //window.location.href = 'http://www.google.com'; 
+          }
+});
+ $( "#search" ).button().click(function() {
+        parent.$("#lll").dialog( "open" );
+        
+           
           
         });
-           
-           
-  });
+        
+
   </script>
   
-  <script>
+  <script src="app.js">
    
  $(function() {
     $( "#ContactEditDialog" ).dialog({
@@ -526,15 +552,12 @@ $('#search').click(function(){
            
           
   });
-  function closeIframe()
-{
-   // alert('dd');
-    $(".ui-dialog-titlebar-close").click();
-    dt.fnDraw();
-  // $("#thedialog").attr('src', "about:blank");
-   // $('#ContactEditDialog').dialog('close');
-   // return false;
-}
+
+//UpdateLesting();
+//function ContactListin(){
+//    alert('ss');
+//    dt.fnDraw();
+//}
 
 var countSetVal=0;
 
@@ -573,7 +596,7 @@ function openWindowAndClose()
 }
 
 
-$("#CatWendow").dialog({
+parent.$("#CatWendow").dialog({
     autoOpen: false,
     modal: true,
     width:600,
@@ -582,20 +605,26 @@ $("#CatWendow").dialog({
       resizable: false,
       
     open: function(ev, ui){
-$(".ui-dialog-titlebar-close").hide();
-             $('#CatWendowIF').attr('src','contacts/catForme');
+parent.$(".ui-dialog-titlebar-close").hide();
+             parent.$('#CatWendowIF').attr('src','contacts/catForme');
           }
 });
 
 $('#cat').click(function(){
       $('#CatWendow').css('overflow','hidden');
      parent.$('body').css('overflow','hidden');
-    $('#CatWendow').dialog('open');
+    parent.$('#CatWendow').dialog('open');
     
 });
 
 
-$("#NewOrg").dialog({
+$('#cat').click(function(){
+      $('#CatWendow').css('overflow','hidden');
+     parent.$('body').css('overflow','hidden');
+    parent.$('#CatWendow').dialog('open');
+    });
+    
+parent.$("#NewOrg").dialog({
     autoOpen: false,
     modal: true,
     width:530,
@@ -604,16 +633,20 @@ $("#NewOrg").dialog({
       resizable: false,
       
     open: function(ev, ui){
-$(".ui-dialog-titlebar-close").hide();
-             $('#NewOrgIF').attr('src','contacts/new_org');
+parent.$(".ui-dialog-titlebar-close").hide();
+             parent.$('#NewOrgIF').attr('src','contacts/new_org');
           }
 });
 
 $('#new_org_button').click(function(){
     //alert($('#insertUrl').val());
     parent.$('body').css('overflow','hidden'); 
-    $('#NewOrg').dialog('open');
+    parent.$('#NewOrg').dialog('open');
 });
+
+function ContactListin(){
+    alert('gg');
+}
 
 
   </script>

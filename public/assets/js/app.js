@@ -618,3 +618,9 @@ $('.datepicker').change(function(){
     $( ".selectEditableJqury" ).combobox();
     
   });
+  function UpdateLesting(){
+      alert('dd');
+      
+      //dt.fnDraw();
+  }
+ 

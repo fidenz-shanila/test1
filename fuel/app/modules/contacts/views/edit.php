@@ -528,9 +528,7 @@
     </div></div>
     
     </form> 
-   <div id="dialog" title="frmInsertContact" class="abcdef" style="width:650px;height:20px;overflow:hidden;background-color:#C0C0C0;">
-    <iframe style="width:550px;height:290px;" id="myIframe" src=""></iframe>
-</div>
+   
 
 </div>
 
@@ -1117,8 +1115,8 @@ $(function() {
  
    
  
- $("#dialog").dialog({
-     open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
+ parent.$("#dialog").dialog({
+     open: function(event, ui) {  parent.$(".ui-dialog-titlebar-close").hide(); },
     autoOpen: false,
     modal: true,
     width:570,
@@ -1127,14 +1125,14 @@ $(function() {
       resizable: false,
       
     open: function(ev, ui){
-$(".ui-dialog-titlebar-close").hide();
-             $('#myIframe').attr('src',$('#insertUrl').val());
+parent.$(".ui-dialog-titlebar-close").hide();
+              parent.$('#myIframe').attr('src',$('#insertUrl').val());
           }
 });
 $('#insertCon').click(function(){
     //alert($('#insertUrl').val());
    
-    $('#dialog').dialog('open');
+    parent.$('#dialog').dialog('open');
 });
  
   $('#insertCloseId').click(function(){

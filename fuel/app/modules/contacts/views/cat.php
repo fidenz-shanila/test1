@@ -1,4 +1,4 @@
-<div width="100%"  style="background-color:#8FA5FA;overflow:hidden;border:none">
+<div width="100%"  style="background-color:#8FA5FA;overflow:hidden;border:none;">
 <form action="" method="post" >
     
     <div class="" style="width:100%;background-color: #8FA5FA;height:350px;">

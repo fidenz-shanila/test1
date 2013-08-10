@@ -19,7 +19,7 @@
 	<div class="clear"></div>
 </div>
 </div><!-- container -->
-<script>
+<script src="app.js">
   $(function() {
     $( "input[type=button],button" )
       .button()
