@@ -1,6 +1,6 @@
 <div id="ContactEditDialog" style="height:100%;width:100%;background-color: #8FA5FA;" class="container clr_org">
     
-    <form method="POST">
+    <form method="POST" id="conEditForm">
         <table border="0" class=""  width="100%"><tr><td width="40%" align="center">
         <table><tr><td ></td><td style="background-color: #CCD6FD;" ><h1 >CONTACTS DETAILS</h1></td><td></td></tr></table>
         </td><td width="60%"  align="center"> <h1>ORGANISATION DETAILS</h1></td></tr><tr><td class="specialTd">
@@ -1169,6 +1169,12 @@ $('#organization1_OR1_InternalOrExternal_id').change(function(){
       $('#saveId').click(function() {
     window.parent.openWindowAndClose();
     });
+    function submitItself(){
+        $("#conEditForm").submit();
+        //parent.openNewWen1(id);
+        //$("#saveId").click(); 
+       //alert('ff');
+    }
 
   </script>
 

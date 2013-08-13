@@ -351,7 +351,7 @@ echo '<pre>',print_r($e),'</pre>';exit;
                 $stmt->execute();
         
                 $contact_id = $this->db->lastInsertId(); //TODO, get ID from stored procedure returns
-                echo "<script type='text/javascript'>parent.editCon({$contact_id});</script>";exit;
+                echo "<script type='text/javascript'>parent.newOrgParent('$contact_id'); parent.$('#NewOrg').dialog('close');</script>";exit;
                 \Response::redirect("contacts/edit/{$contact_id}");
 
             }
@@ -451,8 +451,8 @@ echo '<pre>',print_r($e),'</pre>';exit;
                       
 	    $data = $stmt->fetch();
 //echo $CO_ContactID_pk;
-                
-echo "<script> parent.$('#insertCheckr').val('$CO_ContactID_pk'); parent.$('#dialog').dialog('close');parent.getDataFromNew1('".$CO_ContactID_pk."'); </script>";exit;
+           // $this->action_edit();    
+echo "<script> parent.$('#controlpanal').val('$CO_ContactID_pk'); parent.$('#dialog').dialog('close');parent.openNewWen('".$CO_ContactID_pk."'); </script>";exit;
                 \Message::set('success', 'New contact added.');
             }
             catch(\Exception $e)

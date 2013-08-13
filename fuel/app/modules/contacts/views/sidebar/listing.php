@@ -316,13 +316,68 @@ display:none;
         $("#clearCat").css("display", "none");
            
     });
+   
+
     
-    var timerId=self.setInterval(function(){if(parent.$("#controlpanal").val().length!=0){refrish()}},1000);
-    function refrish(){
-       // alert(parent.$("#controlpanal").val().length);
-       clearInterval(timerId);
-         dt.fnDraw();
-    }
+     $('#new_org_button').click(function(){
+    //alert($('#insertUrl').val());
+    parent.$('body').css('overflow','hidden'); 
+    parent.$('#NewOrg').dialog('open');
+    //timerId=self.setInterval(function(){if(parent.$("#controlpanal").val().length!=0 && !isNaN(parent.$("#controlpanal").val())){refrish();}},1000);
+});
+   
+                $('.select_item').live('click', function(){
+                                    var id = $(this).data('id');
+                               // alert(parent.$("#controlpanal").val());
+                                    editCon(id);
+                                   //timerId=self.setInterval(function(){if(parent.$("#controlpanal").val().length!=0){if(!isNaN(parent.$("#controlpanal").val())){clearInterval(timerId);editCon(parent.$("#controlpanal").val());}refrish();}},1000);
+                                });
+                                               
+                  function editCon(id){
+					
+                                        var width = parent.$('body').innerWidth();
+                                            var height = $(window).height();
+                                          // alert(height);
+ parent.$('body').css('overflow','hidden');
+                   width = width - 200;
+                                    if(height>950){
+                                       $('#somediv').css('overflow','hidden'); 
+                                    height = height-50;
+                                    }
+                                    
+					  //$(".select_item").click(function () {
+                                         parent.$("#thedialog").attr('src', "<?php echo \Uri::create('contacts/edit/'); ?>"+id);
+                                         parent.$("#somediv").dialog({
+                                             open: function(event, ui) {  parent.$(".ui-dialog-titlebar-close").hide(); },
+                                            width: width,
+                                            height: height,
+                                            modal: true,
+                                             resize:false,
+                                            resizable: false,
+                                            close: function () {
+                                                $("#thedialog").attr('src', "about:blank");
+                                            }
+                                            
+                                            
+                                        });
+
+                                     $( "#saveId" ) .click(function() {
+  
+    $(window.top.document).find('#ContactEditDialog').dialog('close');
+ });
+	}
+        
+        function openNewContact(id){
+            ContactListin();
+            editCon(id);
+            
+        }
+        
+        function ContactListin(){
+   // alert('gg');
+    dt.fnDraw();
+}
+
 </script>
 
    <?php 
@@ -346,13 +401,13 @@ display:none;
 			//alert('ff');
                        
 		});
-                 $('.select_item').live('click', function(){
-                                    var id = $(this).data('id');
-                                //$('#module_top_menu').css('height',10000);
-                                    editCon(id);
-                                });
+//                 $('.select_item').live('click', function(){
+//                                    var id = $(this).data('id');
+//                                //$('#module_top_menu').css('height',10000);
+//                                    editCon(id);
+//                                });
                                 function editCon(id){
-					
+					//alert('l');
                                         var width = $(window).width();
                                             var height = $(window).height();
                                             // parent.$('body').css('overflow','hidden');
@@ -401,46 +456,13 @@ display:none;
 		</script>
         <?php }else{?>
            <script type="text/javascript">
-				$('.select_item').live('click', function(){
-                                    var id = $(this).data('id');
+//				$('.select_item').live('click', function(){
+//                                    var id = $(this).data('id');
+//                                
+//                                    editCon(id);
+//                                });
                                 
-                                    editCon(id);
-                                });
-                                
-                                
-                  function editCon(id){
-					
-                                        var width = parent.$('body').innerWidth();
-                                            var height = $(window).height();
-                                          //  alert(height);
- parent.$('body').css('overflow','hidden');
-                   width = width - 200;
-                                    if(height>950){
-                                       $('#somediv').css('overflow','hidden'); 
-                                    height = height-50;
-                                    }
-                                    
-					  //$(".select_item").click(function () {
-                                         parent.$("#thedialog").attr('src', "<?php echo \Uri::create('contacts/edit/'); ?>"+id);
-                                         parent.$("#somediv").dialog({
-                                             open: function(event, ui) {  parent.$(".ui-dialog-titlebar-close").hide(); },
-                                            width: width,
-                                            height: height,
-                                            modal: true,
-                                             resize:false,
-                                            resizable: false,
-                                            close: function () {
-                                                $("#thedialog").attr('src', "about:blank");
-                                            }
-                                            
-                                            
-                                        });
-
-                                     $( "#saveId" ) .click(function() {
-  
-    $(window.top.document).find('#ContactEditDialog').dialog('close');
- });
-	}			
+     		
 		</script>
         
         <?php } ?>
@@ -527,7 +549,7 @@ parent.$(".ui-dialog-titlebar-close").hide();
 
   </script>
   
-  <script src="app.js">
+  <script >
    
  $(function() {
     $( "#ContactEditDialog" ).dialog({
@@ -638,15 +660,10 @@ parent.$(".ui-dialog-titlebar-close").hide();
           }
 });
 
-$('#new_org_button').click(function(){
-    //alert($('#insertUrl').val());
-    parent.$('body').css('overflow','hidden'); 
-    parent.$('#NewOrg').dialog('open');
-});
 
-function ContactListin(){
-    alert('gg');
-}
+//function ContactListin(){
+//    alert('gg');
+//}
 
 
   </script>

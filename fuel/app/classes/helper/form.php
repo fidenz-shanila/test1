@@ -185,14 +185,13 @@ class Helper_Form
 		$str = '';
                 //$str.='<table border="1" id="rangDiv" align="center" style="width:100%;  background-color:#e6e5e0;float:left; padding:0px 4px 3px 3px ;"><tr><td>';
                 $str.='<div id="rangDiv" align="center" style="width:100%;  background-color:#e6e5e0;float:left; padding:0px 4px 3px 3px ;">';
-                $str .='<table><tr><td><h5 align="left" style="margin-left:23%;"><u>FILTER:</u></h5></td>';
-               // $str .='</td><td>';
-                $str .= '</tr><tr><td><input type="text" id="ColourChenger" style="height: 6px;width: 135px;padding:6px ;border:1px solid black" disabled="disabled" name="filter" value="" /></td><td>';
-                //$str .='</td></tr>';
+                $str .='<table border="0"><tr><td><table><tr><td><h5 align="left" style="margin-left:23%;"><u>FILTER:</u></h5></td></tr>';
+                $str .= '<tr><td><input type="text" id="ColourChenger" style="height: 2px;width: 50px;padding:6px ;border:1px solid black" disabled="disabled" name="filter" value="" /></td></tr></table></td><td>';
+
 		foreach (range('A', 'Z') as $range_filter) {
-		    $str .= '<input class="range-filter rangeB " type="button" style="height:30px; width: 25px" onclick="filterChangeColour()" value="'.$range_filter.'" id="'.$range_filter.'" />';
+		    $str .= '<input class="range-filter rangeB " type="button" style="height:30px; width: 20px" onclick="filterChangeColour()" value="'.$range_filter.'" id="'.$range_filter.'" />';
 		}
-		$str .= '<input type="button" onclick="filterResetColour()" class="range-filter-reset btnReset" style="height:30px; width: 75px;color:red;"  id="btnReset" value="RESET" /></td></tr></table>';
+		$str .= '<input type="button" onclick="filterResetColour()" class="range-filter-reset btnReset" style="height:30px; width: 75px;color:red;"  id="btnReset" value="RESET" /></td></table>';
                $str.='</div>';
                 //$str.='</table>';
 		return $str;
@@ -201,15 +200,14 @@ class Helper_Form
 	{
 		$str = '';
                 //$str.='<table border="1" id="rangDiv" align="center" style="width:100%;  background-color:#e6e5e0;float:left; padding:0px 4px 3px 3px ;"><tr><td>';
-                $str.='<div id="rangDiv" align="center" style="width:100%;  background-color:#e6e5e0;float:left; padding:0px 4px 3px 3px ;">';
-                $str .='<table><tr><td><h5 align="left" style="margin-left:23%;">FILTERS:</h5></td>';
-               // $str .='</td><td>';
-                $str .= '</tr><tr><td><input type="text" id="ColourChenger" style="height: 6px;width: 135px;padding:6px ;border:1px solid black" disabled="disabled" name="filter" value="" /></td><td>';
-                //$str .='</td></tr>';
+               $str.='<div id="rangDiv" align="center" style="width:100%;  background-color:#e6e5e0;float:left; padding:0px 4px 3px 3px ;">';
+                $str .='<table border="0"><tr><td><table><tr><td><h5 align="left" style="margin-left:23%;"><u>FILTER:</u></h5></td></tr>';
+                $str .= '<tr><td><input type="text" id="ColourChenger" style="height: 2px;width: 50px;padding:6px ;border:1px solid black" disabled="disabled" name="filter" value="" /></td></tr></table></td><td>';
+
 		foreach (range('A', 'Z') as $range_filter) {
-		    $str .= '<input class="range-filter rangeB " type="button" style="height:30px; width: 25px font-size:10px;" onclick="filterChangeColour()" value="'.$range_filter.'" id="'.$range_filter.'" />';
+		    $str .= '<input class="range-filter rangeB " type="button" style="height:30px; width: 20px" onclick="filterChangeColour()" value="'.$range_filter.'" id="'.$range_filter.'" />';
 		}
-		$str .= '<input type="button" onclick="filterResetColour()" class="range-filter-reset btnReset" style="height:30px; width: 75px;color:red;"  id="btnReset" value="Remove" /></td></tr></table>';
+		$str .= '<input type="button" onclick="filterResetColour()" class="range-filter-reset btnReset" style="height:30px; width: 75px;color:red;"  id="btnReset" value="Remove" /></td></table>';
                $str.='</div>';
                 //$str.='</table>';
 		return $str;

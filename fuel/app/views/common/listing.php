@@ -19,7 +19,7 @@
 	<div class="clear"></div>
 </div>
 </div><!-- container -->
-<script src="app.js">
+<script >
   $(function() {
     $( "input[type=button],button" )
       .button()
@@ -27,5 +27,6 @@
         event.preventDefault();
       });
   });
+  
   </script>			
 		

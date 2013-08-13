@@ -383,27 +383,27 @@ class Model_Quote extends \Model_Base
         
         switch ($filter['advance']['equality']) {
             case "LIKE":
-                $sql .= "LIKE '%" .$criteria1. "%' ";
+                $sql .= "LIKE '%" .$criteria2. "%' ";
                 break;
 
             case "NOT LIKE":
-                $sql .= "NOT LIKE '%" . $criteria1. "%' ";
+                $sql .= "NOT LIKE '%" . $criteria2. "%' ";
                 break;
 
             case "EQUAL TO":
-                $sql .= "= '" . $criteria1 . "' ";
+                $sql .= "= '" . $criteria2 . "' ";
                 break;
 
             case "NOT EQUAL TO":
-                $sql .= "<> '" . $criteria1. "' ";
+                $sql .= "<> '" . $criteria2. "' ";
                 break;
 
             case "STARTS WITH":
-                $sql .= "LIKE '" . $criteria1 . "%' ";
+                $sql .= "LIKE '" . $criteria2 . "%' ";
                 break;
 
             case "ENDS WITH":
-                $sql .= "LIKE '%" . $criteria1 . "' ";
+                $sql .= "LIKE '%" . $criteria2 . "' ";
                 break;
         }
         
