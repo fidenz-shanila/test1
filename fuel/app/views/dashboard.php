@@ -139,8 +139,8 @@
 		</div>
 		
 	</div>
-        <div id="frmContactListing" title="frmContactListing" scrolling="no" width="100%" height="1000px" style="display:none;background-color:#BAC7FC;" >
-    <iframe id="frmContactListingIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: none"></iframe>
+        <div id="frmContactListing" title="frmContactListing" scrolling="no" width="100%"  style="display:none;background-color:#BAC7FC;" >
+    <iframe id="frmContactListingIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: thin hidden;"></iframe>
 </div>
         <div id="somediv" title="frmContact" width="100%" height="1000px" style="display:none;background-color:#8FA5FA;" >
     <iframe id="thedialog" width="100%" height="1000px" style="background-color:#8FA5FA;overflow:auto;border:none"></iframe>
@@ -159,6 +159,7 @@
 </div>
         
         <script type="text/javascript">
+            var globale='';
         $("#frmContactListing").dialog({
     autoOpen: false,
     modal: true,
@@ -181,34 +182,58 @@ $('#ok_tt').click(function(){
 
 function closeIframe()
 {
-//    $.ajax({
-//    //type: "get",
-//    url: "<?php echo \Uri::create('contacts/load_project_select_ajax'); ?>",
-//    //type: "GET",
-////            dataType: 'json',
-////            data: 'id=testdata',
-////            cache: false,
-//    success: function(data) {
-//        //alert(data);
-//    }
-//});
+
+document.getElementById('frmContactListingIF').contentWindow.ContactListin();
+//var x=document.getElementById("frmContactListingIF");
+//alert(x);
+//var y=(x.contentWindow || x.contentDocument);
+//if (y.document)y=y.document;
+//y.body.style.backgroundColor="#0000ff";
+//y.jscript.ContactListin();
+//document.getElementById('frmContactListingIF').contentWindow.ContactListin();
     parent.$('#somediv').dialog('close');
-    $("#controlpanal").val('value');
-    //dt.fnDraw();
-//    alert($("#a_type").val());
-   
-   //UpdateLesting();
-   //$( document ).ready(function() {
-     
-//});
-   
-   
-   
-   
-  
+   // alert(globale);
+    if(globale.length!=0){
+       // alert(globale);
+        document.getElementById('frmContactListingIF').contentWindow.openNewContact(globale);
+        globale='';
+      //  alert('ee');
+    }
+
+}
+function closeForm(){
+     $.ajax({
+    //type: "get",
+    url: "<?php echo \Uri::create('contacts/load_project_select_ajax'); ?>",
+    //type: "GET",
+//            dataType: 'json',
+//            data: 'id=testdata',
+//            cache: false,
+    success: function(data) {
+        alert('data');
+    }
+});
 }
 
+function openNewWen(id){
+document.getElementById('thedialog').contentWindow.submitItself();
+globale=id;
+//document.getElementById('frmContactListingIF').contentWindow.openNewContact(id);
+//alert(id);
+
+}
+function openNewWen1(id){
+//document.getElementById('thedialog').contentWindow.submitItself();
+document.getElementById('frmContactListingIF').contentWindow.openNewContact(id);
+//alert(id);
+
+}
+function newOrgParent(id){
+    document.getElementById('frmContactListingIF').contentWindow.openNewContact(id)
+}
+
+
         </script>
-        <input type="text" id="controlpanal" >
+<!--        <input type="text" id="controlpanal" >-->
 </body>
 </html>
