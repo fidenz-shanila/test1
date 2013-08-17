@@ -34,12 +34,18 @@
          <?php echo Asset::js('bootstrap.js'); ?> 
 </head>
 
-<body>
-	<p style="text-align:right;padding-right:8px;">Logged in as <strong><?php echo $current_user['full_name']; ?></strong></p>
+<body>  <div id="dialogtest"  style="display:none;background-color: #0080C0">
+        <h1 class="app_title">Test and Calibration Database</h1>
+<!--	<p style="text-align:right;padding-right:8px;">Logged in as <strong><?php echo $current_user['full_name']; ?></strong></p>-->
 	<br />
-	<div id="wrap">
-		<h1 class="app_title">Test and Calibration Database</h1>
-		<ul class="icons_grid">
+      
+           
+            
+	<div id="wrap" style="background-color: #7BAFFD;">
+		<h1 class="app_title" style="padding-top:20px;">MAIN MENU</h1>
+                <h4 class="app_title">Welcome <?php echo $current_user['full_name']; ?>.</h4>
+		<h4 class="app_title">Please make a selection from the menu.</h4>
+                <ul class="icons_grid">
 			
 			<li class="contacts">
 				<a href="<?php echo \Uri::create('contacts'); ?>">
@@ -139,8 +145,9 @@
 		</div>
 		
 	</div>
+            </div>
         <div id="frmContactListing" title="frmContactListing" scrolling="no" width="100%"  style="display:none;background-color:#BAC7FC;" >
-    <iframe id="frmContactListingIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: thin hidden;"></iframe>
+    <iframe id="frmContactListingIF" width="100%" height="100%" style=" background-color:#BAC7FC;border: thin hidden;position:absolute;left:-10px;top:0px;"></iframe>
 </div>
         <div id="somediv" title="frmContact" width="100%" height="1000px" style="display:none;background-color:#8FA5FA;" >
     <iframe id="thedialog" width="100%" height="1000px" style="background-color:#8FA5FA;overflow:auto;border:none"></iframe>
@@ -160,11 +167,26 @@
         
         <script type="text/javascript">
             var globale='';
+              $("#dialogtest").dialog({
+    autoOpen: false,
+    modal: true,
+    title:"frmSwitch",
+    width:1055,
+    height:900,
+    resize:false,
+      resizable: false,
+         open: function(ev, ui){
+$(".ui-dialog-titlebar-close").hide();
+            
+          }
+  
+});
+ $('#dialogtest').dialog('open');
         $("#frmContactListing").dialog({
     autoOpen: false,
     modal: true,
-    width:1230,
-    height:780,
+    width:900,
+    height:1000,
     resize:false,
       resizable: false,
       
@@ -232,6 +254,9 @@ function newOrgParent(id){
     document.getElementById('frmContactListingIF').contentWindow.openNewContact(id)
 }
 
+function setData(contact_cat,org_cat){
+    document.getElementById('frmContactListingIF').contentWindow.setData(contact_cat,org_cat) 
+}
 
         </script>
 <!--        <input type="text" id="controlpanal" >-->

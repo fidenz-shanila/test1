@@ -2,10 +2,10 @@
 	<thead>
 		<tr>
 			<th id="ButtonContact" width="2%"></th>
-			<th id="NAME" width="22%"></th>
-			<th id="ORGANISATION" width="48%"></th>
-			<th id="CONTACT_PHONE" width="16%" ></th>
-			<th id="CONTACT_MOBILE"  width="16%"></th>
+			<th id="NAME" width="17%"></th>
+			<th id="ORGANISATION" width="52%"></th>
+			<th id="CONTACT_PHONE" width="14%" ></th>
+			<th id="CONTACT_MOBILE"  width="15%"></th>
 		</tr>
 	</thead>
 </table>

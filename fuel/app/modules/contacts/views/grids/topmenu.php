@@ -1,12 +1,13 @@
 <form action="" id="contacts_listing_filter" class="grid_filter">
     
-    <table  class="" border="0" width="100%" >
+    <table  class="" border="0" width="90%" >
         <tr>
-            <td><table  style="margin:5px; border:1px solid #a1a1a1;margin-right:5px" ><tr><td>
-                            <div  style="margin:5px;;padding:2px;min-height:18px;padding-left:5px;">
-                <label>ORG. TYPE:</label>
-                <?php echo \Helper_Form::org_type_contacts('org_type', 'EXTERNAL', array('class'=>'filter_field')); ?>
-                <?php echo \Helper_Form::clear_select('org_type'); ?>
+            <td><table  style="margin:0px; border:1px solid #a1a1a1;margin-right:0px" ><tr><td>
+                            <div align="left" style="margin:0px;;padding:0px;min-height:18px;padding-left:0px;">
+                                <table  border="0"><tr><td width="40%">
+                <label style=" font-size:10px; ">ORG. TYPE:</label></td><td>
+                <?php echo \Helper_Form::org_type_contacts('org_type', 'EXTERNAL', array('class'=>'filter_field','style'=>'width:100%')); ?></td><td>
+                <?php echo \Helper_Form::clear_select('org_type'); ?></td></tr></table>
                  </div></td></tr></table>
             </td><td width="40%">
                 <h1 style="font-size:200%;">PM CONTACTS LISTING</h1>
@@ -30,7 +31,7 @@
             </td>
         </tr>
     </table>
-    <table  class="" border="0" width="100%"  >
+    <table  class="" border="0" width="90%"  >
         <tr><th align="center" id="vNam" style="cursor:default" width="23%" ><u><b><h3>NAME(...click)</h3></b></u></th><td align="center" id="vOrg" width="49%" style="color:#0209c7;cursor:default"><u><b><h3>ORGANISATION(...click)</h3></b></u></td><td align="center"><u><b>CONTACT PHONE</b></u></td><td align="center"><u><b>CONTACT MOBILE</b></u></td></tr>
         </table>
     

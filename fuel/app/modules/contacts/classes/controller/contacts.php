@@ -63,11 +63,11 @@ class Controller_Contacts extends \Controller_Base {
         foreach ($result['result'] as $c) 
         {
                 $data[] = array(
-                    (\Input::get('mode'))?'<div id="divForButton"  style="background-color:#8da7eb;width:100%;height:30px;padding:0px"><input type="button" class="select_item2 spaced3" data-org_id="' . $c['OR1_OrgID_pk'] . '" data-contact_id="' . $c['CO_ContactID_pk'] . '" data-org_name="' . $c['CO_Fullname'] .'" data-contact_name="' . $c['OR1_FullName'] . '" value="<" /><input type="button"  class="select_item spaced3" onclick=cleanSetIntervalFunction() id="' . $c['CO_ContactID_pk'] . '" data-id="' . $c['CO_ContactID_pk'] . '" value=".." /></div>':'<div  style="background-color:#8da7eb;width:100%;height:30px;padding:2px"><input type="button"  class="select_item spaced1" onclick=cleanSetIntervalFunction() id="' . $c['CO_ContactID_pk'] . '" data-id="' . $c['CO_ContactID_pk'] . '" value=".." /></div>',
-                   '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;min-height:18px;padding-left:5px;border: 1px solid #aaadaa;">'. $c['CO_Fullname'].'</div>',
-                    '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;min-height:18px;padding-left:5px;border: 1px solid #aaadaa;">'.$c['OR1_FullName'].'</div>',
-                    '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;min-height:18px;padding-left:5px;border: 1px solid #aaadaa;">'.$c['CO_Phone'].'</div>',
-                    '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;min-height:18px;padding-left:5px;border: 1px solid #aaadaa;">'.$c['CO_Mobile'].'</div>'
+                    (\Input::get('mode'))?'<div id="divForButton"  style="background-color:#8da7eb;width:100%;padding:0px;"><input type="button" class="select_item2 spaced3" data-org_id="' . $c['OR1_OrgID_pk'] . '" data-contact_id="' . $c['CO_ContactID_pk'] . '" data-org_name="' . $c['CO_Fullname'] .'" data-contact_name="' . $c['OR1_FullName'] . '" value="<" /><input type="button"  class="select_item spaced3" onclick=cleanSetIntervalFunction() id="' . $c['CO_ContactID_pk'] . '" data-id="' . $c['CO_ContactID_pk'] . '" value=".." /></div>':'<div  style="background-color:#8da7eb;width:100%;padding:2px"><input type="button"  class="select_item spaced5" onclick=cleanSetIntervalFunction() id="' . $c['CO_ContactID_pk'] . '" data-id="' . $c['CO_ContactID_pk'] . '" value=".." /></div>',
+                   '<input type="text" name="LastName" value="'.$c['CO_Fullname'].'" style="margin:5px;background-color:#d5d6d0;padding:0px;padding-left:5px;border: 1px solid #aaadaa;height:15px;width:94%;font-size: 11px;" readonly>',
+                     '<input type="text" name="LastName" value="'.$c['OR1_FullName'].'" style="margin:5px;background-color:#d5d6d0;padding:0px;padding-left:5px;border: 1px solid #aaadaa;height:15px;width:98%;font-size: 11px;" readonly>',
+                    '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;height:10px;padding-left:5px;border: 1px solid #aaadaa;width:100%;overflow:hidden;">'.$c['CO_Phone'].'</div>',
+                    '<div  style="margin:5px;background-color:#d5d6d0;padding:2px;height:10px;padding-left:5px;border: 1px solid #aaadaa;width:100%;overflow:hidden;">'.$c['CO_Mobile'].'</div>'
                 );
             
         }

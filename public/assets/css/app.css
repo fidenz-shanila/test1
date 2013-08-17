@@ -538,7 +538,8 @@ table.advance_search .checkBoxStl {
 /* data tables
 ============================================================================= */
 
-.filter_table { margin: 10px 0; width: 100%; }
+/*.filter_table { margin: 10px 0; width: 100%; }*/
+.filter_table { margin: 0px 0; width: 100%; }
 .filter_table tr td { width: 50%; }
 .filter_table tr td select { width: 50%; }
 .filter_table tr td label {  display: inline-block; margin: 0 20px; width: 5%; }
@@ -760,6 +761,12 @@ form#login_box .signin {
 .spaced1 {
     width:25px;
     height:25px;
+    font-size: 6px;
+  /*padding: 2px 5px;*/
+}
+.spaced5 {
+    width:20px;
+    height:20px;
     font-size: 6px;
   /*padding: 2px 5px;*/
 }
